@@ -15,79 +15,28 @@ function normalizar(texto) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
-const respuestas = [
-  {
-    palabras: [
-      "ubicacion",
-      "dirección",
-      "direccion",
-      "donde",
-      "sede",
-      "lugar"
-    ],
-    respuesta: () =>
-      `El Centro Regional de Veraguas está ubicado en ${conocimiento.contacto.direccion}`
-  },
-  {
-    palabras: ["telefono", "teléfono", "contacto", "llamar"],
-    respuesta: () =>
-      `Puedes contactar al Centro Regional de Veraguas en los teléfonos ${conocimiento.contacto.telefonos.join(
-        " y "
-      )}.`
-  },
-  {
-    palabras: ["correo", "email", "e-mail"],
-    respuesta: () =>
-      `El correo del Centro Regional de Veraguas es ${conocimiento.contacto.correo}.`
-  },
-  {
-    palabras: ["horario", "atencion", "atención", "hora"],
-    respuesta: () =>
-      `El horario de atención es ${conocimiento.contacto.horario}.`
-  },
-  {
-    palabras: [
-      "admision",
-      "admisión",
-      "ingresar",
-      "inscripcion",
-      "inscripción",
-      "requisitos"
-    ],
-    respuesta: () =>
-      `${conocimiento.admision.descripcion} ${
-        conocimiento.admision.nota
-      } Consulta más información en ${conocimiento.enlaces.admision}.`
-  },
-  {
-    palabras: ["carrera", "carreras", "pregrado", "estudiar", "oferta"],
-    respuesta: () =>
-      `Puedes consultar la oferta académica del Centro Regional de Veraguas en ${conocimiento.enlaces.pregrado}.`
-  },
-  {
-    palabras: ["sitio", "pagina", "página", "web", "oficial"],
-    respuesta: () =>
-      `El sitio oficial del Centro Regional de Veraguas es ${conocimiento.enlaces.sitioOficial}.`
-  },
-  {
-    palabras: ["hola", "buenas", "saludos"],
-    respuesta: () =>
-      `Hola, soy ${conocimiento.identidad.nombre}. Puedo orientarte sobre admisión, carreras, contacto, ubicación y horarios del Centro Regional de Veraguas.`
-  }
-];
-
 function buscarRespuesta(mensaje) {
   const texto = normalizar(mensaje);
 
-  const encontrada = respuestas.find((item) =>
-    item.palabras.some((palabra) => texto.includes(normalizar(palabra)))
-  );
+  let mejorCoincidencia = null;
+  let mayorPuntaje = 0;
 
-  if (encontrada) {
-    return encontrada.respuesta();
+  for (const pregunta of conocimiento.preguntasFrecuentes) {
+    const puntaje = pregunta.palabrasClave.reduce((total, palabra) => {
+      return texto.includes(normalizar(palabra)) ? total + 1 : total;
+    }, 0);
+
+    if (puntaje > mayorPuntaje) {
+      mayorPuntaje = puntaje;
+      mejorCoincidencia = pregunta;
+    }
   }
 
-  return `Todavía no tengo esa información registrada. Puedes consultar el sitio oficial del Centro Regional de Veraguas: ${conocimiento.enlaces.sitioOficial}`;
+  if (mejorCoincidencia) {
+    return `${mejorCoincidencia.respuesta} Fuente: ${mejorCoincidencia.fuente}`;
+  }
+
+  return `Todavía no tengo esa información registrada. Puedes consultar el sitio oficial del Centro Regional de Veraguas: ${conocimiento.fuente.url}`;
 }
 
 app.get("/api/health", (req, res) => {
@@ -95,6 +44,10 @@ app.get("/api/health", (req, res) => {
     estado: "ok",
     servicio: conocimiento.identidad.nombre
   });
+});
+
+app.get("/api/categorias", (req, res) => {
+  res.json(conocimiento.categorias);
 });
 
 app.post("/api/chat", (req, res) => {
