@@ -18,14 +18,137 @@
     "pregrado": "https://ve.utp.ac.pa/pregrado",
     "contacto": "https://ve.utp.ac.pa/contactenos"
   },
-  "admision": {
-    "descripcion": "El proceso de admisión incluye inscripción en línea, pago y aplicación de la Prueba de Aptitud Académica, pruebas requeridas, seminario de inducción y entrega de documentos.",
-    "nota": "Las fechas, costos y requisitos pueden cambiar. Se debe consultar siempre la información oficial de la UTP."
-  },
-  "carreras": {
-    "descripcion": "La oferta académica incluye carreras y técnicos de distintas facultades de la Universidad Tecnológica de Panamá.",
-    "enlace": "https://ve.utp.ac.pa/pregrado"
-  },
+  "categorias": [
+    {
+      "nombre": "General",
+      "descripcion": "Preguntas generales sobre el chatbot y la sede.",
+      "enlace": "https://ve.utp.ac.pa/"
+    },
+    {
+      "nombre": "Admisión",
+      "descripcion": "Información general para ingresar a la UTP.",
+      "enlace": "https://ve.utp.ac.pa/admision"
+    },
+    {
+      "nombre": "Carreras",
+      "descripcion": "Oferta académica del Centro Regional de Veraguas.",
+      "enlace": "https://ve.utp.ac.pa/pregrado"
+    },
+    {
+      "nombre": "Contacto",
+      "descripcion": "Ubicación, teléfonos, correo y horario de atención.",
+      "enlace": "https://ve.utp.ac.pa/contactenos"
+    }
+  ],
+  "preguntasFrecuentes": [
+    {
+      "categoria": "General",
+      "pregunta": "Saludo inicial",
+      "palabrasClave": [
+        "hola",
+        "buenas",
+        "saludos"
+      ],
+      "respuesta": "Hola, soy UTP Guía Veraguas. Puedo orientarte sobre admisión, carreras, contacto, ubicación y horarios del Centro Regional de Veraguas.",
+      "fuente": "https://ve.utp.ac.pa/"
+    },
+    {
+      "categoria": "Admisión",
+      "pregunta": "¿Cómo puedo ingresar a la UTP?",
+      "palabrasClave": [
+        "ingresar",
+        "ingreso",
+        "entrar",
+        "admisión",
+        "admision",
+        "inscripción",
+        "inscripcion",
+        "requisitos"
+      ],
+      "respuesta": "El proceso general incluye inscripción en línea, pago y aplicación de la Prueba de Aptitud Académica, además de las pruebas y documentos que correspondan. Consulta los requisitos y fechas actualizadas en el sitio oficial de admisión.",
+      "fuente": "https://ve.utp.ac.pa/admision"
+    },
+    {
+      "categoria": "Admisión",
+      "pregunta": "¿Dónde consulto el proceso de admisión?",
+      "palabrasClave": [
+        "proceso",
+        "admisión",
+        "admision",
+        "inscripción",
+        "inscripcion"
+      ],
+      "respuesta": "Puedes consultar el proceso de admisión del Centro Regional de Veraguas en el sitio oficial.",
+      "fuente": "https://ve.utp.ac.pa/admision"
+    },
+    {
+      "categoria": "Carreras",
+      "pregunta": "¿Qué carreras ofrece la sede de Veraguas?",
+      "palabrasClave": [
+        "carreras",
+        "carrera",
+        "pregrado",
+        "estudiar",
+        "oferta"
+      ],
+      "respuesta": "La oferta académica puede consultarse en la página oficial de pregrado del Centro Regional de Veraguas.",
+      "fuente": "https://ve.utp.ac.pa/pregrado"
+    },
+    {
+      "categoria": "Contacto",
+      "pregunta": "¿Cuál es la dirección de la sede?",
+      "palabrasClave": [
+        "dirección",
+        "direccion",
+        "ubicación",
+        "ubicacion",
+        "dónde",
+        "donde",
+        "lugar"
+      ],
+      "respuesta": "El Centro Regional de Veraguas está ubicado en la Vía Panamericana, a un costado del Hospital Dr. Luis Chicho Fábrega, San Antonio, distrito de Atalaya, provincia de Veraguas.",
+      "fuente": "https://ve.utp.ac.pa/contactenos"
+    },
+    {
+      "categoria": "Contacto",
+      "pregunta": "¿Cómo puedo contactar a la sede?",
+      "palabrasClave": [
+        "contacto",
+        "teléfono",
+        "telefono",
+        "llamar",
+        "correo",
+        "email"
+      ],
+      "respuesta": "Puedes contactar al Centro Regional de Veraguas en los teléfonos (507) 999-3991 y (507) 999-3234, o escribir al correo utp.veraguas@utp.ac.pa.",
+      "fuente": "https://ve.utp.ac.pa/contactenos"
+    },
+    {
+      "categoria": "Contacto",
+      "pregunta": "¿Cuál es el horario de atención?",
+      "palabrasClave": [
+        "horario",
+        "atención",
+        "atencion",
+        "hora"
+      ],
+      "respuesta": "El horario general de atención es de lunes a viernes, de 8:00 a. m. a 4:00 p. m.",
+      "fuente": "https://ve.utp.ac.pa/contactenos"
+    },
+    {
+      "categoria": "Sitio oficial",
+      "pregunta": "¿Cuál es el sitio oficial?",
+      "palabrasClave": [
+        "sitio",
+        "página",
+        "pagina",
+        "web",
+        "oficial"
+      ],
+      "respuesta": "Puedes consultar el sitio oficial del Centro Regional de Veraguas en el siguiente enlace.",
+      "fuente": "https://ve.utp.ac.pa/"
+    }
+  ],
   "fuente": {
     "nombre": "Centro Regional de Veraguas - Universidad Tecnológica de Panamá",
     "url": "https://ve.utp.ac.pa/"
