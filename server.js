@@ -47,7 +47,21 @@ app.get("/api/health", (req, res) => {
 });
 
 app.get("/api/categorias", (req, res) => {
-  res.json(conocimiento.categorias);
+  const categorias = conocimiento.categorias.map((categoria) => {
+    const preguntas = conocimiento.preguntasFrecuentes
+      .filter((pregunta) => pregunta.categoria === categoria.nombre)
+      .map((pregunta) => ({
+        pregunta: pregunta.pregunta,
+        palabrasClave: pregunta.palabrasClave
+      }));
+
+    return {
+      ...categoria,
+      preguntas
+    };
+  });
+
+  res.json(categorias);
 });
 
 app.post("/api/chat", (req, res) => {
