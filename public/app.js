@@ -3,12 +3,62 @@ const input = document.querySelector("#mensaje");
 const chat = document.querySelector("#chat");
 const categories = document.querySelector("#categories");
 
+function desplazarAlFinal() {
+  chat.scrollTop = chat.scrollHeight;
+}
+
 function agregarMensaje(texto, tipo) {
   const elemento = document.createElement("div");
   elemento.className = `message ${tipo}`;
   elemento.textContent = texto;
   chat.appendChild(elemento);
-  chat.scrollTop = chat.scrollHeight;
+  desplazarAlFinal();
+  return elemento;
+}
+
+function agregarRespuestaBot(texto) {
+  const contenedor = document.createElement("div");
+  contenedor.className = "bot-response";
+
+  const mensaje = document.createElement("div");
+  mensaje.className = "message bot";
+  mensaje.textContent = texto;
+
+  const feedback = document.createElement("div");
+  feedback.className = "feedback";
+
+  const pregunta = document.createElement("span");
+  pregunta.textContent = "¿Te ayudó esta respuesta?";
+
+  const botonSi = document.createElement("button");
+  botonSi.type = "button";
+  botonSi.textContent = "Sí";
+
+  const botonNo = document.createElement("button");
+  botonNo.type = "button";
+  botonNo.textContent = "No";
+
+  function registrarFeedback(valoracion) {
+    botonSi.disabled = true;
+    botonNo.disabled = true;
+
+    const confirmacion = document.createElement("span");
+    confirmacion.className = "feedback-confirmation";
+    confirmacion.textContent =
+      valoracion === "si"
+        ? "¡Gracias por tu valoración!"
+        : "Gracias. Revisaremos esta pregunta para mejorar.";
+
+    feedback.replaceChildren(confirmacion);
+  }
+
+  botonSi.addEventListener("click", () => registrarFeedback("si"));
+  botonNo.addEventListener("click", () => registrarFeedback("no"));
+
+  feedback.append(pregunta, botonSi, botonNo);
+  contenedor.append(mensaje, feedback);
+  chat.appendChild(contenedor);
+  desplazarAlFinal();
 }
 
 async function enviarMensaje(mensaje) {
@@ -30,7 +80,7 @@ async function enviarMensaje(mensaje) {
       throw new Error(data.error || "Error del servidor.");
     }
 
-    agregarMensaje(data.respuesta, "bot");
+    agregarRespuestaBot(data.respuesta);
   } catch (error) {
     console.error(error);
     agregarMensaje(
@@ -80,8 +130,7 @@ async function cargarCategorias() {
       const description = document.createElement("p");
       description.textContent = categoria.descripcion;
 
-      article.appendChild(title);
-      article.appendChild(description);
+      article.append(title, description);
 
       if (categoria.preguntas.length > 0) {
         article.appendChild(mostrarPreguntas(categoria.preguntas));
@@ -95,8 +144,7 @@ async function cargarCategorias() {
     });
   } catch (error) {
     console.error(error);
-    categories.innerHTML =
-      "<p>No se pudieron cargar las categorías.</p>";
+    categories.innerHTML = "<p>No se pudieron cargar las categorías.</p>";
   }
 }
 

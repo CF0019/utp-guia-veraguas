@@ -159,3 +159,44 @@ header p {
   border-color: #0284c7;
   background: #e0f2fe;
 }
+.bot-response {
+  max-width: 80%;
+  margin-bottom: 14px;
+}
+
+.bot-response .message {
+  max-width: 100%;
+  margin-bottom: 6px;
+}
+
+.feedback {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-left: 8px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.feedback button {
+  padding: 4px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  color: #075985;
+  background: white;
+  cursor: pointer;
+}
+
+.feedback button:hover {
+  background: #e0f2fe;
+}
+
+.feedback button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.feedback-confirmation {
+  color: #0f766e;
+}
