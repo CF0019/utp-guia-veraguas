@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UTP Guía Veraguas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="chat-container">
+    <header>
+      <h1>UTP Guía Veraguas</h1>
+      <p>Asistente para estudiantes de nuevo ingreso</p>
+      <div class="quick-questions">
+  <button type="button" data-question="¿Cuál es la dirección de la sede?">
+    Dirección
+  </button>
+  <button type="button" data-question="¿Qué carreras ofrecen?">
+    Carreras
+  </button>
+  <button type="button" data-question="¿Cómo es el proceso de admisión?">
+    Admisión
+  </button>
+  <button type="button" data-question="¿Cuál es el horario de atención?">
+    Horario
+  </button>
+</div>
+    </header>
+
+    <section id="chat" class="chat">
+      <div class="message bot">
+        Hola. Soy UTP Guía Veraguas. ¿Qué información necesitas?
+      </div>
+    </section>
+
+    <form id="chat-form" class="chat-form">
+      <input
+        id="mensaje"
+        type="text"
+        placeholder="Escribe tu pregunta..."
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "identidad": {
+    "nombre": "UTP Guía Veraguas",
+    "descripcion": "Asistente informativo para estudiantes de nuevo ingreso del Centro Regional de Veraguas."
+  },
+  "contacto": {
+    "direccion": "Vía Panamericana, a un costado del Hospital Dr. Luis Chicho Fábrega, San Antonio, distrito de Atalaya, provincia de Veraguas.",
+    "telefonos": [
+      "(507) 999-3991",
+      "(507) 999-3234"
+    ],
+    "correo": "utp.veraguas@utp.ac.pa",
+    "horario": "Lunes a viernes, de 8:00 a. m. a 4:00 p. m."
+  },
+  "enlaces": {
+    "sitioOficial": "https://ve.utp.ac.pa/",
+    "admision": "https://ve.utp.ac.pa/admision",
+    "pregrado": "https://ve.utp.ac.pa/pregrado",
+    "contacto": "https://ve.utp.ac.pa/contactenos"
+  },
+  "admision": {
+    "descripcion": "El proceso de admisión incluye inscripción en línea, pago y aplicación de la Prueba de Aptitud Académica, pruebas requeridas, seminario de inducción y entrega de documentos.",
+    "nota": "Las fechas, costos y requisitos pueden cambiar. Se debe consultar siempre la información oficial de la UTP."
+  },
+  "carreras": {
+    "descripcion": "La oferta académica incluye carreras y técnicos de distintas facultades de la Universidad Tecnológica de Panamá.",
+    "enlace": "https://ve.utp.ac.pa/pregrado"
+  },
+  "fuente": {
+    "nombre": "Centro Regional de Veraguas - Universidad Tecnológica de Panamá",
+    "url": "https://ve.utp.ac.pa/"
+  }
+}
